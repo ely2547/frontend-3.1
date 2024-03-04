@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import RoomCard from '../components/RoomCard';
 import { motion } from 'framer-motion';
@@ -46,7 +45,15 @@ const itemVariants = {
 };
 
 const Prices = () => {
-  
+  const [currency, setCurrency] = useState('USD');
+  const [exchangeRate, setExchangeRate] = useState(1); // Tipo de cambio por defecto
+
+  const handleCurrencyChange = (newCurrency) => {
+    const newExchangeRate = newCurrency === 'EUR' ? 0.93 : 1; // tipo de cambio
+    setCurrency(newCurrency);
+    setExchangeRate(newExchangeRate);
+  };
+
   return (
     <motion.div
       className="container mx-auto px-4 py-8"
@@ -69,6 +76,21 @@ const Prices = () => {
             }}>
           Precios de las Habitaciones
         </h2>
+        <div>
+  <button
+    onClick={() => handleCurrencyChange('EUR')}
+    className="text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 font-medium py-1 px-3 rounded shadow-sm"
+  >
+    Cambiar a Euros
+  </button>
+  <button
+    onClick={() => handleCurrencyChange('USD')}
+    className="text-gray-600 bg-white border border-gray-300 hover:bg-gray-50 font-medium py-1 px-3 rounded shadow-sm ml-2"
+  >
+    Cambiar a Dólares
+  </button>
+</div>
+
       </div>
       <motion.div className="flex flex-wrap -m-4"
         variants={containerVariants}
@@ -82,6 +104,8 @@ const Prices = () => {
               roomDescription={price.description}
               roomImage={price.image}
               price={price.price}
+              currency={currency}
+              exchangeRate={exchangeRate}
             />
           </motion.div>
         ))}
@@ -91,4 +115,3 @@ const Prices = () => {
 };
 
 export default Prices;
-
