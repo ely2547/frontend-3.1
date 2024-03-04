@@ -67,7 +67,6 @@ class ContactUs extends Component {
               />
               <Marker position={position}>
                 <Popup>
-                  Nuestro hotel está aquí. ¡Ven a visitarnos!
                 </Popup>
               </Marker>
             </MapContainer>

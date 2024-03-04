@@ -17,11 +17,11 @@ const Header = () => {
           </div>
           <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block`}>
             <ul className="flex flex-col md:flex-row space-y-4 md:space-x-4 md:space-y-0">
-              <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/services">Servicios</a></li>
+              <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/services">Services</a></li>
               <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/precios">Precios</a></li>
               <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/reservas">Reservar</a></li>
-              <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/promotions">Promociones</a></li>
-              <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/contact">Contactanos</a></li>
+              <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/promotions">Promotions</a></li>
+              <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/contact">Contact us</a></li>
               <li><a className="text-gray-600 hover:text-gray-800 font-medium" href="/blog">Blog</a></li>
             </ul>
           </nav>

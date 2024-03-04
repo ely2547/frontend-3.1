@@ -1,8 +1,9 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const RoomCard = ({ roomName, roomDescription, roomImage, price }) => {
+const RoomCard = ({ roomName, roomDescription, roomImage, price, currency, exchangeRate }) => {
+  const convertedPrice = (price * exchangeRate).toFixed(2);
+
   return (
     <motion.div className="rounded-lg shadow-lg overflow-hidden"
       whileHover={{ scale: 1.1 }}
@@ -13,11 +14,11 @@ const RoomCard = ({ roomName, roomDescription, roomImage, price }) => {
         <h3 className="text-xl font-semibold text-sky-600">{roomName}</h3>
         <p className="text-gray-800">{roomDescription}</p>
         <div className="flex items-center justify-between mt-4">
-          <span className="text-gray-700 text-sm" // Añade un elemento para mostrar el precio
+          <span className="text-gray-700 text-sm" // Se añade un elemento para mostrar el precio
             style={{
-              marginRight: '10px' // Añade un margen a la derecha
+              marginRight: '10px' // Se añade un margen a la derecha
             }}>
-            Precio: ${price}
+            Precio: {currency === 'USD' ? `$${price}` : `€${convertedPrice}`}
           </span>
         </div>
       </div>
